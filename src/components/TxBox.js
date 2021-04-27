@@ -53,7 +53,7 @@ const TxBox = ({ cancel, sellDaiOnUniswap, txHash }) => {
         <TableRow>
           <TableCell align={'left'}>
             <Text weight={'bold'}>{`Tx :`}</Text>{' '}
-            <Anchor href={`https://ropsten.etherscan.io/tx/${txHash}`}>
+            <Anchor href={`https://etherscan.io/tx/${txHash}`}>
               {txHash.substr(0, 8)}…
             </Anchor>
           </TableCell>
