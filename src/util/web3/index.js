@@ -16,7 +16,7 @@ const batAddress = '0x85B24b3517E3aC7bf72a14516160541A60cFF19d';
 
 const initWeb3 = async (infuraKey, privateKey) => {
   // init web3
-  const provider = new Web3.providers.HttpProvider(`https://ropsten.infura.io/v3/${infuraKey}`);
+  const provider = new Web3.providers.HttpProvider(`https://mainnet.infura.io/v3/${infuraKey}`);
   web3 = new Web3(provider);
 
   // add private key
