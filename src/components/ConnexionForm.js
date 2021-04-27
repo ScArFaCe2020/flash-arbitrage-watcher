@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Form, FormField, Button, CheckBox } from 'grommet';
+import { Box, Text, Form, FormField, Button } from 'grommet';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { initialize, updateRates } from '../store';
@@ -16,16 +16,6 @@ const startRateUpdates = () => {
 const ConnexionForm = ({ initialize }) => {
   const onSubmit = ({ value }) => {
     const { ethPrivateKey, infuraKey, dfuseKey } = value;
-    if (
-      ethPrivateKey.length !== 66 ||
-      !(ethPrivateKey.startsWith('0x') || ethPrivateKey.startsWith('0X')) ||
-      infuraKey.length < 30 ||
-      infuraKey.length > 34 ||
-      dfuseKey.length < 38 ||
-      dfuseKey.length > 40 ||
-      !dfuseKey.startsWith('server_')
-    )
-      return;
     initialize(ethPrivateKey, infuraKey, dfuseKey);
     initWeb3(infuraKey, ethPrivateKey);
     initDfuse(dfuseKey);
@@ -44,12 +34,6 @@ const ConnexionForm = ({ initialize }) => {
           <FormField label="Ropsten private key" name="ethPrivateKey" type="password" required />
           <FormField label="Infura API key" name="infuraKey" type="password" required />
           <FormField label="Dfuse API key" name="dfuseKey" type="password" required />
-          <FormField
-            margin={{ top: 'medium' }}
-            component={CheckBox}
-            label="I acknowledge that running the demo will spend some Ropsten ETH."
-            required
-          />
           <Box direction="row" justify={'center'} margin={{ top: 'medium' }}>
             <Button type="submit" label="Start the demo" primary />
           </Box>
