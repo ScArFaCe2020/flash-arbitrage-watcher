@@ -41,7 +41,7 @@ const cancelFlashLoan = () => {
       from: web3.eth.defaultAccount,
       to: web3.eth.defaultAccount,
       value: amount,
-      gas: 5500000,
+      gas: 8500000,
       gasPrice: Math.floor(1.3 * gasPrice),
       nonce: web3.utils.toHex(lastNonce),
     })
@@ -60,7 +60,7 @@ const submitFlashLoan = daiToBat => {
     .flashLoan(receiver, reserveAddress, amount, params)
     .send({
       from: web3.eth.defaultAccount,
-      gas: 5500000,
+      gas: 8500000,
       gasPrice: gasPrice,
       nonce: web3.utils.toHex(lastNonce),
     })
